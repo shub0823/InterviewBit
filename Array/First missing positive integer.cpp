@@ -12,7 +12,6 @@ Given [1,2,0] return 3,
 Your algorithm should run in O(n) time and use constant space. This is a function problem and we had to complete below function.
 */
 
-
 int Solution::firstMissingPositive(vector<int> &A) {
     int n = A.size();
     
@@ -34,8 +33,7 @@ int Solution::firstMissingPositive(vector<int> &A) {
         if (abs(A[i])+j-1 >= 0 && abs(A[i])+j-1 < n) {
             if (A[abs(A[i])+j-1]>0)
                 A[abs(A[i])+j-1] = -A[abs(A[i])+j-1];
-        }
-        
+        } 
             
     }
    
