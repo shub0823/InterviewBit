@@ -125,7 +125,7 @@ double Solution::findMedianSortedArrays(const vector<int> &A, const vector<int> 
 
         double L1 = (mid2==0) ? INT_MIN : A[(mid2-1)/2];
         double L2 = (mid1==0) ? INT_MIN : B[(mid1-1)/2];
-        double R1 = (mid2==m*2) ? INT_MAX : B[mid2/2];
+        double R1 = (mid2==m*2) ? INT_MAX : A[mid2/2];
         double R2 = (mid1==n*2) ? INT_MAX : B[mid1/2];
 
         //since L1 <= R1 and L2 <= R2
