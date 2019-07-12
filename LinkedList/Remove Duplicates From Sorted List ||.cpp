@@ -20,7 +20,7 @@ ListNode* Solution::deleteDuplicates(ListNode* A) {
         return A;
     
     ListNode *temp_head = new ListNode(0);
-    temp->head->next = A;
+    temp_head->next = A;
     ListNode *prev = temp_head;
     
     while (A) {
@@ -35,5 +35,5 @@ ListNode* Solution::deleteDuplicates(ListNode* A) {
         A = A->next;
     }
     
-    return temp->head->next;
+    return temp_head->next;
 }
