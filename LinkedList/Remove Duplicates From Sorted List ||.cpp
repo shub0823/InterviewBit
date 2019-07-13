@@ -14,6 +14,7 @@ https://www.interviewbit.com/problems/remove-duplicates-from-sorted-list-ii/
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+//Aproach 1 took more time and gave TLE at InterviewBit
 ListNode* Solution::deleteDuplicates(ListNode* A) {
 
     if (!A || !A->next)
@@ -24,6 +25,7 @@ ListNode* Solution::deleteDuplicates(ListNode* A) {
     ListNode *prev = temp_head;
     
     while (A) {
+       //will take O(N) in case where all elements are duplicates
         while (A->next && A->val == A->next->val)
             A = A->next;
         
@@ -36,4 +38,27 @@ ListNode* Solution::deleteDuplicates(ListNode* A) {
     }
     
     return temp_head->next;
+}
+
+//Approach 2 slight changes, updating at the same time
+
+ListNode *removeDuplicatesFromSortedList2(ListNode *A)
+{
+    ListNode *dummy = new ListNode (0);
+    dummy->next = A;
+    ListNode *prev = dummy;
+    int dup;
+
+    while (prev->next && prev->next->next) {
+        if (prev->next->val == prev->next->next->val) {
+            dup = prev->next->val;
+
+            while (prev->next && prev->next->val == dup)
+                prev->next = prev->next->next;
+        }
+        else
+            prev = prev->next;
+    }
+
+    return dummy->next;
 }
