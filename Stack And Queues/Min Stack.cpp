@@ -16,6 +16,7 @@ A: In this case, return -1
     NOTE : If you are using your own declared global variables, make sure to clear them out in the constructor. 
 */
 
+//a stack of pair<int, int> first int is for returning the topmost element and other int is to compare and plave the min elem on second.
 stack<pair<int, int> > st;
 
 
@@ -25,7 +26,7 @@ MinStack::MinStack() {
 }
 
 void MinStack::push(int x) {
-    int mn = (st.empty()) ? x : min(st.top().second, x);
+    int mn = (st.empty()) ? x : min(st.top().second, x);//second place in pair is for minimum element among all.
     st.push(make_pair(x, mn));
 }
 
